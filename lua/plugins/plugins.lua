@@ -45,4 +45,14 @@ return {
       })
     end,
   },
+  {
+    {
+      "folke/noice.nvim",
+      opts = {
+        cmdline = {
+          view = "cmdline",
+        },
+      },
+    },
+  },
 }
