@@ -80,6 +80,7 @@ return {
           "ruff_format",
           "ruff_organize_imports",
         },
+        sql = { "sql_formatter" },
       },
     },
   },
