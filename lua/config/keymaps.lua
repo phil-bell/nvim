@@ -71,3 +71,5 @@ map("n", "<leader>tc", function()
 
   vim.fn.setreg("+", "inv localdev.pytest " .. path .. " -- -k " .. func)
 end, { desc = "Copy relative path" })
+
+map("n", "<leader>kl", "<cmd>KLocateTests<cr>", { desc = "Locate test file" })
