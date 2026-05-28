@@ -23,10 +23,47 @@ function getPath()
   return path
 end
 
+-- Source - https://stackoverflow.com/a/7615129
+-- Posted by user973713, modified by community. See post 'Timeline' for change history
+-- Retrieved 2026-05-28, License - CC BY-SA 4.0
+
+function split(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t = {}
+  for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+
+function getImport()
+  local path = getPath()
+  path = string.gsub(path, "/", ".")
+  local split_path = split(path, ".")
+  table.remove(split_path, 0)
+  table.remove(split_path, nil)
+  local file_name = split_path[#split_path]
+  if string.sub(file_name, 1, 1) == "_" then
+    table.remove(split_path, nil)
+    file_name = split_path[#split_path]
+  end
+  local module_name = split_path[#split_path - 1] .. "_" .. split_path[#split_path]
+  table.remove(split_path, nil)
+  local import = "from " .. table.concat(split_path, ".") .. " import " .. file_name .. " as " .. module_name
+  return import
+end
+
 map("n", "<leader>fC", function()
   local path = getPath()
   vim.fn.setreg("+", path)
 end, { desc = "Copy relative path" })
+
+map("n", "<leader>fi", function()
+  local path = getImport()
+  vim.fn.setreg("+", path)
+end, { desc = "Copy relative import" })
 
 map("n", "<leader>tc", function()
   local path = getPath()
