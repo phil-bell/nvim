@@ -42,7 +42,7 @@ function getImport()
   local path = getPath()
   path = string.gsub(path, "/", ".")
   local split_path = split(path, ".")
-  table.remove(split_path, 0)
+  table.remove(split_path, 1)
   table.remove(split_path, nil)
   local file_name = split_path[#split_path]
   if string.sub(file_name, 1, 1) == "_" then
