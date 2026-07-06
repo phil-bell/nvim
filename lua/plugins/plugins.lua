@@ -89,4 +89,10 @@ return {
     tag = "v4.2.1",
     config = true,
   },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight-night",
+    },
+  },
 }
