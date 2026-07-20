@@ -73,3 +73,4 @@ map("n", "<leader>tc", function()
 end, { desc = "Copy relative path" })
 
 map("n", "<leader>kl", "<cmd>KLocateTests<cr>", { desc = "Locate test file" })
+map("n", "<leader>ki", "<cmd>KPasteImportStatementWithAlias<cr>", { desc = "Paste import statement of other buffer" })
