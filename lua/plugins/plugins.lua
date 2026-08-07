@@ -1,11 +1,6 @@
 return {
   { "bufferline.nvim", enabled = false },
   {
-    "octoenergy/kraken.nvim",
-    opts = { commands = {} },
-    dev = true,
-  },
-  {
     {
       "folke/noice.nvim",
       opts = {
@@ -16,27 +11,31 @@ return {
     },
   },
   {
-    "stevearc/conform.nvim",
+    "LazyVim/LazyVim",
     opts = {
-      formatters_by_ft = {
-        ["python"] = {
-          "ruff_fix",
-          "ruff_format",
-          "ruff_organize_imports",
-        },
-        sql = { "sql_formatter" },
-      },
+      colorscheme = "tokyonight-night",
     },
   },
   {
     "gregorias/coerce.nvim",
-    tag = "v4.2.1",
+    tag = "v5.0.0",
     config = true,
+    keys = {
+      { "<leader>cc", "<Plug>(coerce-normal)", desc = "Coerce word" },
+    },
   },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-night",
+    "octoenergy/kraken.nvim",
+    dev = true,
+    config = true,
+    keys = {
+      { "<leader>kl", "<cmd>KLocateTests<cr>", desc = "Locate test file" },
+      { "<leader>ki", "<cmd>KPasteImportStatement<cr>", desc = "Paste import statement of other buffer" },
+      {
+        "<leader>ka",
+        "<cmd>KPasteImportStatementWithAlias<cr>",
+        desc = "Paste import statement of other buffer with alias",
+      },
     },
   },
 }
