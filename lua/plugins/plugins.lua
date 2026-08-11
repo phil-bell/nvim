@@ -25,6 +25,21 @@ return {
     },
   },
   {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        ["python"] = {
+          "ruff_fix",
+          "ruff_format",
+          "ruff_organize_imports",
+        },
+        sql = { "sql_formatter" },
+        json = { "jq" },
+        rust = { "rustfmt" },
+      },
+    },
+  },
+  {
     "octoenergy/kraken.nvim",
     dev = true,
     config = true,
