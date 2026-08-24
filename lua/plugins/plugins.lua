@@ -40,6 +40,21 @@ return {
     },
   },
   {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "rust_analyzer",
+        "ty",
+        "ruff",
+        "typescript-language-server",
+        "django-language-server",
+        "lua-language-server",
+        "postgres-language-server",
+      },
+    },
+  },
+  {
     "octoenergy/kraken.nvim",
     dev = true,
     config = true,
